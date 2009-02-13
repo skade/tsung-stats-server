@@ -1,0 +1,103 @@
+#!/usr/bin/ruby
+#
+# TODO: Explain the command-line usage of this program here.
+#
+#
+# Usage:
+#
+#   TsungStatsServer [Options] Param1 Param2 Param3...
+#
+#
+#   Param1:   Description for the first parameter.
+#
+#   Param2:   Description for the second parameter.
+#
+#   Param3:   Description for the third parameter.
+#
+#
+# Options:
+#
+
+require 'rubygems'
+require 'sinatra'
+
+gem 'inochi', '~> 0'
+require 'markaby'
+
+require 'inochi'
+require 'zip/zip'
+
+command_line = Inochi.main :TsungStatsServer do
+  opt :logdir, "Log directory to use instead of the default directory", :default => File.expand_path("~/.tsung/log")
+  opt :tsung_stats, "Command to call tsung_stats.pl", :default => "perl -S /usr/lib/tsung/bin/tsung_stats.pl"
+end
+
+
+Markaby::Builder.set(:indent, 2)
+
+configure do
+  set :public, command_line.logdir
+  set :logdir, command_line.logdir
+  set :tsung_stats, command_line.tsung_stats
+end
+
+get '/' do
+  logdirs = (Dir.entries(options.logdir) - [".", ".."]).sort
+  logdirs.reject! {|file| file =~ /\.zip/ }
+  list_dirs(logdirs)  
+end
+
+get '/:dir/report.html' do
+  run_stats(params[:dir])
+end
+
+get '/:dir.zip' do
+  filename = params[:dir].gsub(/:/, '-')
+  zip(params[:dir], filename)
+  attachment("#{filename}.zip")
+  content_type("application/zip")
+  File.read(File.join(options.logdir, "#{filename}.zip"))
+end
+
+def run_stats(dir)
+  Dir.chdir( File.join(options.logdir, dir) ) do
+    unless File.exists?('report.html')
+      system(options.tsung_stats)
+    end
+    File.read('report.html')
+  end
+end
+
+def zip(dir, filename)
+  Dir.chdir( File.join(options.logdir) ) do
+    unless File.exists?("#{dir}.zip")
+      Zip::ZipFile.open("#{filename}.zip", true) do |zf|
+        Dir["#{dir}/**/*"].each { |f| zf.add(f, f) }
+      end
+    end
+  end
+end
+
+def list_dirs(logdirs)
+  doc = Markaby::Builder.new
+  doc.html do
+    head do
+      title "Logpickin'"
+    end
+    body do
+      h1 "Pick a log:"
+      ul.logs do
+        logdirs.each do |dir|
+          li.log do
+            a "Log #{dir}", :href => "/#{dir}/report.html"
+            a "As zip", :href => "/#{dir}.zip"
+          end
+        end
+      end
+    end
+  end
+end
+# TODO: add the body of your program here
+
+#puts "Command-line options:   #{options.inspect}"
+#puts "Command-line arguments: #{ARGV.inspect}"

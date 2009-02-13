@@ -1,0 +1,80 @@
+<% chapter "Introduction" do %>
+  <% project_summary do %>
+    **Tsung Stats Server** is a small webserver that generates and servers [Tsung](http://tsung.erlang-projects.org/) logs.
+  <% end %>
+  
+  [Tsung](http://tsung.erlang-projects.org/) is a good and well configurable stress tester for several kinds of servers. Sadly, handling of the logs, especially when running on a machine without a graphical interface lacks a bit. 
+  
+  TsungStatsServer tries to fix this problem.
+  
+  **<%= $project %>** is a small [Sinatra](http://www.sinatrarb.com) application that handles 3 Tasks:
+  * Listing all logs present on a machine.
+  * Transforming the logs to graphical statistics on demand by using tsung_stats.pl.
+  * Providing a zipped download of the logs.
+
+  <% section "Logistics" do %>
+    * <%= xref "History", "Release notes" %> --- history of project releases.
+    * [Source code](http://github.com/skade/<%= $program %>) --- obtain via [Git](http://git.or.cz) or browse online.
+    * [API reference](api/index.html) --- documentation for source code.
+
+    To get help or provide feedback, simply
+    <%= xref "License", "contact the author(s)" %>.
+
+    <% paragraph "Version numbers" do %>
+      **<%= $project %>** releases are numbered in *major.minor.patch*
+      form according to the [RubyGems rational versioning
+      policy](http://www.rubygems.org/read/chapter/7), which
+      can be summarized thus:
+
+      <table markdown="1">
+        <thead>
+          <tr>
+            <td rowspan="2">What increased in the version number?</td>
+            <td colspan="3">The increase indicates that the release:</td>
+          </tr>
+          <tr>
+            <th>Is backward compatible?</th>
+            <th>Has new features?</th>
+            <th>Has bug fixes?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>major</th>
+            <td style="background-color: #FFE4E1;">No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th>minor</th>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th>patch</th>
+            <td>Yes</td>
+            <td style="background-color: #FFE4E1;">No</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  <% end %>
+
+  <% section "License" do %>
+    <%# include ../LICENSE #%>
+  <% end %>
+
+  <% section "Credits" do %>
+    > TODO: give attribution to your predecessors and contributors
+
+    **<%= $project %>** is made possible by
+    <%= xref "History", "contributions" %>
+    from users like you:
+
+    * __________ (contributor name)
+    * __________ (contributor name)
+    * __________ (contributor name)
+  <% end %>
+<% end %>

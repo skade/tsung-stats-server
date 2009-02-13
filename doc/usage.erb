@@ -1,0 +1,26 @@
+<% chapter "Usage" do %>
+  <% section "Command-line interface" do %>
+    When you run this command:
+
+        <%= $program %> --help
+
+    You will see this output:
+
+    <pre><%= verbatim `ruby bin/#{$program_name} --help` %></pre>
+
+    > TODO: explain the command-line arguments
+  <% end %>
+
+  <% section "Ruby library interface" do %>
+    > TODO: explain how to use your project's Ruby library
+    >       from inside another Ruby program or library
+  <% end %>
+
+  <% section "Tutorial" do %>
+    This tutorial shows how **<%= $project %>** is used to __________.
+
+    > TODO: give examples for doing common tasks
+  <% end %>
+
+  > TODO: explain how to do more (advanced) things
+<% end %>
