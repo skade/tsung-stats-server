@@ -4,8 +4,8 @@ require 'inochi'
 
 Inochi.init :TsungStatsServer,
   :project => 'tsung_stats_server',
-  :version => '0.0.0',
-  :release => '2009-02-13',
+  :version => '0.0.1',
+  :release => '2009-03-14',
   :website => 'http://skadesgems.rubyforge.org',
   :tagline => 'A simple webserver serving tsung stats',
   :require => {

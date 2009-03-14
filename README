@@ -1,0 +1,11 @@
+Tsung Stats Server is a small Sinatra application that handles 3 Tasks:
+
+* Listing all Tsung logs present on a machine.
+* Transforming the logs to graphical statistics on demand by using **tsung\_stats.pl**.
+* Providing a zipped download of the logs.
+
+You can see the command line arguments by calling:
+
+  tsung_log_server --help
+  
+

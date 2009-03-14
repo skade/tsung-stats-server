@@ -5,23 +5,23 @@
   
   [Tsung](http://tsung.erlang-projects.org/) is a good and well configurable stress tester for several kinds of servers. Sadly, handling of the logs, especially when running on a machine without a graphical interface lacks a bit. 
   
-  TsungStatsServer tries to fix this problem.
+  Tsung Stats Server tries to fix this problem.
   
-  **<%= $project %>** is a small [Sinatra](http://www.sinatrarb.com) application that handles 3 Tasks:
-  * Listing all logs present on a machine.
-  * Transforming the logs to graphical statistics on demand by using tsung_stats.pl.
+  **Tsung Stats Server** is a small [Sinatra](http://www.sinatrarb.com) application that handles 3 Tasks:
+  * Listing all Tsung logs present on a machine.
+  * Transforming the logs to graphical statistics on demand by using **tsung\_stats.pl**.
   * Providing a zipped download of the logs.
 
   <% section "Logistics" do %>
     * <%= xref "History", "Release notes" %> --- history of project releases.
-    * [Source code](http://github.com/skade/<%= $program %>) --- obtain via [Git](http://git.or.cz) or browse online.
+    * [Source code](http://github.com/skade/tsung-stats-server/) --- obtain via [Git](http://git.or.cz) or browse online.
     * [API reference](api/index.html) --- documentation for source code.
 
     To get help or provide feedback, simply
     <%= xref "License", "contact the author(s)" %>.
 
     <% paragraph "Version numbers" do %>
-      **<%= $project %>** releases are numbered in *major.minor.patch*
+      **Tsung Stats Server** releases are numbered in *major.minor.patch*
       form according to the [RubyGems rational versioning
       policy](http://www.rubygems.org/read/chapter/7), which
       can be summarized thus:
@@ -67,14 +67,10 @@
   <% end %>
 
   <% section "Credits" do %>
-    > TODO: give attribution to your predecessors and contributors
 
-    **<%= $project %>** is made possible by
-    <%= xref "History", "contributions" %>
-    from users like you:
-
-    * __________ (contributor name)
-    * __________ (contributor name)
-    * __________ (contributor name)
+    Thanks to Nicolas Niclausse and all contributors for writing Tsung.
+  
+    Thanks to Suraj N. Kurapati for writing Inochi.
+    
   <% end %>
 <% end %>

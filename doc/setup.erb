@@ -1,15 +1,19 @@
 <% chapter "Setup" do %>
   <% section "Requirements" do %>
-    Your system needs the following software to run **<%= $project %>**.
+    Your system needs the following software to run **tsung\_stats\_server**.
 
     | Software                        | Description               | Notes                                        |
     | --------                        | -----------               | -----                                        |
-    | [Ruby](http://ruby-lang.org)    | Ruby language interpreter | Version 1.8.6 is required.         |
-    | [RubyGems](http://rubygems.org) | Ruby packaging system     | Version 1.3.1 is required. |
+    | [Ruby](http://ruby-lang.org)    | Ruby language interpreter | Version 1.8.6 is required.                   |
+    | [RubyGems](http://rubygems.org) | Ruby packaging system     | Version 1.3.1 is required.                   |
+    | [Sinatra](http://www.sinatrarb.com) | The Sinatra web framework     | Version 0.9.x is required.                   |
+    | [Rubyzip](http://rubyzip.sourceforge.net/ ) | Zip file library     | Version 0.9.7 is required.                   |
+    | [Inochi](http://snk.tuxfamily.org/lib/inochi) | Inochi      | Version 0.3.0 is required.                   |
+    | [Tsung](http://tsung.erlang-projects.org/) | Tsung          | Version 1.3.0 is required.                   |
   <% end %>
 
   <% section "Installation" do %>
-    You can install **<%= $project %>** by running this command:
+    You can install **Tsung Stats Server** by running this command:
 
         gem install -f <%= $program %>
 
@@ -25,34 +29,5 @@
     <%= xref "License", "ask the author(s)" %> for help.
   <% end %>
 
-  <% section "Manifest" do %>
-    You will see the following items inside **<%= $project %>**'s installation
-    directory, whose path you can determine by running this command:
-
-        <%= $program %> --version
-
-    > TODO: list important files your project provides here
-
-    * <tt>bin/</tt>
-
-      * <tt><%= $program %></tt> --- the main **<%= $project %>** executable.
-
-    * <tt>lib/</tt>
-
-      * <tt><%= $program %>.rb</tt> --- the main **<%= $project %>** library.
-
-      * <tt><%= $program %>/</tt>
-
-        > TODO: list sub-libraries your project provides here
-
-    * <tt>doc/</tt>
-
-      * <tt>api/</tt> --- API reference documentation.
-
-      * <tt>index.erb</tt> --- source of this user manual.
-
-    * <tt>lang/</tt> --- translations of language phrases.
-
-    * <tt>LICENSE</tt> --- copyright notice and legal conditions.
-  <% end %>
+ 
 <% end %>

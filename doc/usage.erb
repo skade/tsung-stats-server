@@ -1,26 +1,23 @@
 <% chapter "Usage" do %>
   <% section "Command-line interface" do %>
-    When you run this command:
-
+  
+    You can see the online help by running the following command:
+  
         <%= $program %> --help
 
-    You will see this output:
-
-    <pre><%= verbatim `ruby bin/#{$program_name} --help` %></pre>
-
-    > TODO: explain the command-line arguments
+    The command-line arguments are:
+   
+    | Argument      | Description                             | Default                                   |
+    | --------      | -----------                             | -------                                   |
+    | --logdir      | The directory containing the tsung logs | ~/.tsung/log                              |
+    | --tsung-stats | The command used to call tsung_stats.pl | perl -S /usr/lib/tsung/bin/tsung_stats.pl |
+    | --port        | The port to run the server on           | 1764 (42 ** 2)                            |
+   
+    This starts the server on your machine. Point your browser to
+   
+        http://localhost:1764
+      
+    to see a list of available logs and options.
   <% end %>
 
-  <% section "Ruby library interface" do %>
-    > TODO: explain how to use your project's Ruby library
-    >       from inside another Ruby program or library
-  <% end %>
-
-  <% section "Tutorial" do %>
-    This tutorial shows how **<%= $project %>** is used to __________.
-
-    > TODO: give examples for doing common tasks
-  <% end %>
-
-  > TODO: explain how to do more (advanced) things
 <% end %>
