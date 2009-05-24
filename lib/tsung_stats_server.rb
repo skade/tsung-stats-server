@@ -3,7 +3,7 @@ gem 'inochi', '~> 0'
 require 'inochi'
 
 Inochi.init :TsungStatsServer,
-  :project => 'tsung_stats_server',
+  :project => 'skadesgems',
   :version => '0.0.1',
   :release => '2009-03-14',
   :website => 'http://skadesgems.rubyforge.org',
