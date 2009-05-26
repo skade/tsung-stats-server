@@ -1,7 +1,8 @@
 module YARD::Handlers::Ruby
   class SinatraRouteHandler < Base
-    HTTP_METHODS = %w(get post put delete head trace)
-    handles method_call(*HTTP_METHODS)
+    %w(get post put delete head trace).each do |http_method|
+      handles method_call(http_method)
+    end
     
     def process
       method = statement[0][0].upcase

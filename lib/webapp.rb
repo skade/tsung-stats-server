@@ -7,9 +7,7 @@ Markaby::Builder.set(:indent, 2)
 Sinatra::Application.set(:run => false, :environment => 
 :production)
 
-SinatraApplication = Sinatra::Application
-
-class TSSApp < SinatraApplication
+class TSSApp < Sinatra::Application
   configure do
     set :public, COMMAND_LINE.logdir
     set :logdir, COMMAND_LINE.logdir
