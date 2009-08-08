@@ -1,5 +1,5 @@
 require 'rubygems'
-gem 'inochi', '~> 0'
+#gem 'inochi', '~> 0'
 require 'inochi'
 
 Inochi.init :TsungStatsServer,
@@ -10,6 +10,6 @@ Inochi.init :TsungStatsServer,
   :tagline => 'A simple webserver serving tsung stats',
   :require => {
     'sinatra' => '~> 0.9',
-    'rubyzip' => '~> 0.9',
+    'zipruby' => '~> 0.3',
     'markaby' => '~> 0.5'
   }
